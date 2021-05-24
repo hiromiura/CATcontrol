@@ -59,6 +59,7 @@ Public Class CATcontrolMainForm
 
         '例外処理
         'ポートが開けない
+        '受信タイムアウト
 
     End Sub
 
