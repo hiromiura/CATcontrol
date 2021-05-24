@@ -10,15 +10,15 @@ Public Class CATcontrolMainForm
         For Each portName In My.Computer.Ports.SerialPortNames
             COMPortCombobox.Items.Add(portName)
         Next
+        COMPortCombobox.SelectedItem = "COM8" 'デフォルト値
     End Sub
 
-    Private Sub ConnectButton_Click(sender As Object, e As EventArgs) Handles ConnectButton.Click
+    Private Sub ConnectButton_Click(sender As Object, e As EventArgs)
         'テキストボックスの値を適切な型に変換する
 
-        '        My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem, BaudrateTextbox.Text, ParityTextbox.Text, DataBitTextbox.Text, StopBitTextbox.Text)
 
         'シリアルポートを開く
-        My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
+        My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem, 38400, Parity.None, 8, 2)
         COMPortLabel.Text = COMPortCombobox.SelectedItem
 
         '例外処理
@@ -62,7 +62,7 @@ Public Class CATcontrolMainForm
 
     End Sub
 
-    Private Sub DisconnectButton_Click(sender As Object, e As EventArgs) Handles DisconnectButton.Click
+    Private Sub DisconnectButton_Click(sender As Object, e As EventArgs)
         '開いているシリアルポートを閉じる
         My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem).Close()
         COMPortLabel.Text = ""
@@ -75,31 +75,7 @@ Public Class CATcontrolMainForm
         'シリアルポートを開き、コマンドを送信する
         Using com As IO.Ports.SerialPort =
             My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
-            com.WriteLine("PC010;")
-        End Using
-    End Sub
-
-    Private Sub PC050Button_Click(sender As Object, e As EventArgs) Handles PC050Button.Click
-        'シリアルポートを開き、コマンドを送信する
-        Using com As IO.Ports.SerialPort =
-            My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
-            com.WriteLine("PC050;")
-        End Using
-    End Sub
-
-    Private Sub KR0Button_Click(sender As Object, e As EventArgs) Handles KR0Button.Click
-        'シリアルポートを開き、コマンドを送信する
-        Using com As IO.Ports.SerialPort =
-            My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
-            com.WriteLine("KR0;")
-        End Using
-    End Sub
-
-    Private Sub KR1Button_Click(sender As Object, e As EventArgs) Handles KR1Button.Click
-        'シリアルポートを開き、コマンドを送信する
-        Using com As IO.Ports.SerialPort =
-            My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
-            com.WriteLine("KR1;")
+            com.Write("PC010;" & "KR0;" & "BI1;")
         End Using
     End Sub
 
@@ -107,7 +83,7 @@ Public Class CATcontrolMainForm
         'シリアルポートを開き、コマンドを送信する
         Using com As IO.Ports.SerialPort =
             My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
-            com.WriteLine("BI1;")
+            com.Write("PC050;" & "KR1;")
         End Using
     End Sub
 End Class
