@@ -36,6 +36,7 @@ Public Class CATcontrolMainForm
         'シリアルポートを開き、コマンドを送信する
         Using com As IO.Ports.SerialPort =
             My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
+            COMPortLabel.Text = COMPortCombobox.SelectedItem
             com.WriteLine(TxDataTextbox.Text)
             com.NewLine = ";"
             'End Using
@@ -76,6 +77,7 @@ Public Class CATcontrolMainForm
         'シリアルポートを開き、コマンドを送信する
         Using com As IO.Ports.SerialPort =
             My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
+            COMPortLabel.Text = COMPortCombobox.SelectedItem
             com.Write("PC010;" & "KR0;" & "BI1;")
         End Using
     End Sub
@@ -84,7 +86,12 @@ Public Class CATcontrolMainForm
         'シリアルポートを開き、コマンドを送信する
         Using com As IO.Ports.SerialPort =
             My.Computer.Ports.OpenSerialPort(COMPortCombobox.SelectedItem)
+            COMPortLabel.Text = COMPortCombobox.SelectedItem
             com.Write("PC050;" & "KR1;")
         End Using
+    End Sub
+
+    Private Sub RxDataLabel_Click(sender As Object, e As EventArgs) Handles RxDataLabel.Click
+
     End Sub
 End Class
