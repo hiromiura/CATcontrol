@@ -17,4 +17,4 @@ JI8UCI
 
 # License
 
-"CatControl" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"CATControl" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
