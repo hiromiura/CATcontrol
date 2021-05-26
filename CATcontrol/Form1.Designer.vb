@@ -30,6 +30,8 @@ Partial Class CATcontrolMainForm
         Me.BI1Button = New System.Windows.Forms.Button()
         Me.RxDataLabel = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TxButton
@@ -55,16 +57,16 @@ Partial Class CATcontrolMainForm
         Me.COMPortCombobox.Name = "COMPortCombobox"
         Me.COMPortCombobox.Size = New System.Drawing.Size(63, 20)
         Me.COMPortCombobox.TabIndex = 6
-        Me.COMPortCombobox.Text = "COM8"
         '
         'COMPortLabel
         '
         Me.COMPortLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.COMPortLabel.Location = New System.Drawing.Point(15, 182)
+        Me.COMPortLabel.Location = New System.Drawing.Point(63, 188)
         Me.COMPortLabel.Name = "COMPortLabel"
-        Me.COMPortLabel.Size = New System.Drawing.Size(247, 19)
+        Me.COMPortLabel.Size = New System.Drawing.Size(199, 21)
         Me.COMPortLabel.TabIndex = 12
         Me.COMPortLabel.Text = "COM"
+        Me.COMPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PC010Button
         '
@@ -87,25 +89,46 @@ Partial Class CATcontrolMainForm
         'RxDataLabel
         '
         Me.RxDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.RxDataLabel.Location = New System.Drawing.Point(15, 155)
+        Me.RxDataLabel.Location = New System.Drawing.Point(63, 160)
         Me.RxDataLabel.Name = "RxDataLabel"
-        Me.RxDataLabel.Size = New System.Drawing.Size(247, 21)
+        Me.RxDataLabel.Size = New System.Drawing.Size(199, 21)
         Me.RxDataLabel.TabIndex = 18
+        Me.RxDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 18)
+        Me.Label1.Location = New System.Drawing.Point(18, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 12)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "COM Port"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 166)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(29, 12)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "受信"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(16, 191)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(33, 12)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "ポート"
+        '
         'CATcontrolMainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(281, 216)
+        Me.ClientSize = New System.Drawing.Size(281, 221)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RxDataLabel)
         Me.Controls.Add(Me.BI1Button)
@@ -133,4 +156,6 @@ Partial Class CATcontrolMainForm
     Friend WithEvents BI1Button As Button
     Friend WithEvents RxDataLabel As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class
